@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class iBoton : MonoBehaviour {
 
     // Use this for initialization
@@ -9,7 +9,8 @@ public class iBoton : MonoBehaviour {
     {
         vector = new int[4];
     }
-
+    public Image[] imagenes1;
+    public Image[] imagenes0;
     // Update is called once per frame
     void Update()
     {
