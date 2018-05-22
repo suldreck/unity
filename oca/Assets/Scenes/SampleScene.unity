@@ -551,7 +551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24ecd530063ba145a344aeb47cbe888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imagenes: []
+  imagenes0: []
+  imagenes1: []
   vector: 
   total: 0
 --- !u!1 &813094903
@@ -606,7 +607,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24ecd530063ba145a344aeb47cbe888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imagenes: []
+  imagenes0:
+  - {fileID: 21300000, guid: d2fc4f75e2109d64693e18078e8b2ecf, type: 3}
+  - {fileID: 21300000, guid: b9a7ea1d2e810a84c8667915d441535f, type: 3}
+  - {fileID: 21300000, guid: 0ffd79b6db959d4469d409ee2a0a4372, type: 3}
+  imagenes1:
+  - {fileID: 21300000, guid: 0f3b22993eb9ff840a5a78615439cff2, type: 3}
+  - {fileID: 21300000, guid: 76875be7615995a4592cfa63ce8477cb, type: 3}
+  - {fileID: 21300000, guid: a366f07433144be4bbe3efa54fbd060b, type: 3}
   vector: 
   total: 0
 --- !u!114 &813094906
