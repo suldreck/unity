@@ -10,7 +10,7 @@ public class iBoton : MonoBehaviour {
         vector = new int[4];
     }
     public Sprite[] imagenes0;
-    public Sprite[] imagenes1;
+    
     
     // Update is called once per frame
     void Update()
@@ -19,11 +19,15 @@ public class iBoton : MonoBehaviour {
     }
     public int[] vector;
     public int total;
+    public int valorDado { get; set; }
+
     public void fAleatorio()
     {
         
-
-        for (int i=0; i < vector.Length; i++)
+        valorDado = Random.Range(0, imagenes0.Length);
+        Debug.Log("el valor del dado es: " + valorDado);
+        this.transform.GetChild(0).GetComponent<Image>().sprite = imagenes0[valorDado];
+       /* for (int i=0; i < vector.Length; i++)
         {
             vector[i] = Random.Range(0, 2);//1-3
             Debug.Log("el valor es:_" + vector[i]);
@@ -37,6 +41,6 @@ public class iBoton : MonoBehaviour {
                 Debug.Log("la longitud de imagenes1 es: " + imagenes1.LongLength);
                 transform.GetChild(i).GetComponent<Image>().sprite = imagenes1[Random.Range(0, imagenes1.Length)];
             }
-        }
+        }*/
     }
 }
