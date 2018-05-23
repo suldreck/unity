@@ -14,7 +14,8 @@ public class sficha : MonoBehaviour {
 		
 	}
     public  void OnMouseUp()
-    {
+    {//ToDo,  asegurrse de que objeto ui, se esta pulsando, en este caso
+        //deberia ser la ficha solamente.
         Debug.Log("click");
     }
 }
