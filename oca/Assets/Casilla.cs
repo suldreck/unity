@@ -8,7 +8,7 @@ public class Casilla : MonoBehaviour {
 	void Start () {
 		
 	}
-    public Casilla siguiente;
+    public Casilla [] siguiente;
     // Update is called once per frame
     void Update () {
 
