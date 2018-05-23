@@ -1,0 +1,1 @@
+﻿El proyecto C:\Users\chema\Documents\GitHub\unity\oca\Assembly-CSharp.csproj no se pudo volver a cargar
