@@ -338,6 +338,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 813094904}
   - {fileID: 296211186}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -449,11 +450,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 813094904}
   - {fileID: 1882657412}
   - {fileID: 986408782}
   m_Father: {fileID: 191534055}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -730,12 +730,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 839231011}
-  m_Father: {fileID: 296211186}
+  m_Father: {fileID: 191534055}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 121.61, y: 15.46}
+  m_AnchoredPosition: {x: 149.87, y: 15.460007}
   m_SizeDelta: {x: 86.72, y: 24.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &813094905
@@ -1115,7 +1115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 296211186}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1151820943
 MonoBehaviour:
@@ -1379,7 +1379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69af31555d96e06478274943ca551dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dado: {fileID: 0}
   casillaInicio: {fileID: 1876812952}
 --- !u!54 &1697597123
 Rigidbody:
@@ -1619,7 +1618,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 296211186}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

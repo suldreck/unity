@@ -6,10 +6,10 @@ public class sficha : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        dado = GameObject.FindObjectsOfType<iBoton>();
+        dado = GameObject.FindObjectOfType<iBoton>();
 
     }
-     iBoton  []dado;
+     iBoton  dado;
     public Casilla casillaInicio;
     Casilla casillaActual;
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class sficha : MonoBehaviour {
      //deberia ser la ficha solamente.
      
        
-        int espaciosParaMover = dado[1].valorDado;
+        int espaciosParaMover = dado.valorDado;
         //Debug.Log("valor dado:  " + espaciosParaMover);
         //Casilla casillaFinal = casillaActual;
         //float extraAltura = (this.transform.localScale.y) / 2;
