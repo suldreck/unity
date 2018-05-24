@@ -137,4 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9bc59ab3fdd5743b80721414969e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  siguiente: {fileID: 0}
+  siguiente:
+  - {fileID: 0}

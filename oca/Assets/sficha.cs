@@ -6,49 +6,54 @@ public class sficha : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        dado = GameObject.FindObjectOfType<iBoton>();
-	}
-    iBoton dado;
+        dado = GameObject.FindObjectsOfType<iBoton>();
+
+    }
+     iBoton  []dado;
     public Casilla casillaInicio;
     Casilla casillaActual;
 	// Update is called once per frame
 	void Update () {
-		
-	}
-    public void OnMouseUp()
+        
+    }
+     void OnMouseUp()
     {//ToDo,  asegurrse de que objeto ui, se esta pulsando, en este caso
-        //deberia ser la ficha solamente.
-      
-        Debug.Log(" ****posicion***" + this.transform.position);//para borrar
-        //int espaciosParaMover = dado.valorDado;
-        int espaciosParaMover = 2;//solo para testear
-        Casilla casillaFinal = casillaActual;
-       // Debug.Log("la casilla siguiente " + casillaFinal.transform.position);// si es nullo
-        for (int i = 0; i < espaciosParaMover; i++)
-        {
-            //Debug.Log("dentro del for");//se q entro en el for
-            if (casillaFinal == null)
-            {//*********recordar que cuando llegue a la 63, no tiene q ir a la casilla de inicio sino hacia atras.
-                casillaFinal = casillaInicio;
-                Debug.Log("casilla final es nula");// si es nullo
-            }
-            else
-            {
-                casillaFinal = casillaFinal.siguiente[0];//como si fuera un iterador
-                                                         //creo q no necesita ser un array,
-                                                  // por q solo puede ir a una casilla
-               // Debug.Log("la casilla siguiente "+ casillaFinal.transform.name);// si es nullo
-            }
-        }
-        if (casillaFinal == null)
-        {
-            return;
-        }
+     //deberia ser la ficha solamente.
+     
+       
+        int espaciosParaMover = dado[1].valorDado;
+        //Debug.Log("valor dado:  " + espaciosParaMover);
+        //Casilla casillaFinal = casillaActual;
+        //float extraAltura = (this.transform.localScale.y) / 2;
+     
+       
+       
+        
+    //    // Debug.Log("la casilla siguiente " + casillaFinal.transform.position);// si es nullo
+    //    for (int i = 0; i < espaciosParaMover; i++)
+    //    {
+    //        //Debug.Log("dentro del for");//se q entro en el for
+    //        if (casillaFinal == null)
+    //        {//*********recordar que cuando llegue a la 63, no tiene q ir a la casilla de inicio sino hacia atras.
+    //            casillaFinal = casillaInicio;
+               
+    //        }
+    //        else
+    //        {
+    //            casillaFinal = casillaFinal.siguiente[0];//como si fuera un iterador
+    //                                                     //creo q no necesita ser un array,
+    //                                              // por q solo puede ir a una casilla
+              
+    //        }
+    //    }
+    //    if (casillaFinal == null)
+    //    {
+    //        return;
+    //    }
 
         
-        this.transform.position = casillaFinal.transform.position;//revisar por q no entiendo
-        Debug.Log(" ---->posicion cambio<-----" + this.transform.position);
-
-        casillaActual = casillaFinal;
+    //    this.transform.position = casillaFinal.transform.position;//revisar por q no entiend
+    //    this.transform.position = this.transform.position + Vector3.up * extraAltura;//se modifica aqui con vector3.up
+    //    casillaActual = casillaFinal;
     }
 }
