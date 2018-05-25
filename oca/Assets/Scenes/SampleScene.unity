@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4870746863734896, guid: 50951e6d02401f1448f20b48163662cf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -115.2
+      value: -115.6
       objectReference: {fileID: 0}
     - target: {fileID: 4870746863734896, guid: 50951e6d02401f1448f20b48163662cf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -432,7 +432,6 @@ GameObject:
   - component: {fileID: 296211189}
   - component: {fileID: 296211188}
   - component: {fileID: 296211187}
-  - component: {fileID: 296211190}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -545,23 +544,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 296211185}
---- !u!114 &296211190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 296211185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24ecd530063ba145a344aeb47cbe888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imagenes0: []
-  dadoPulsado: 0
-  valorDado: 0
-  prueba: 
-  vector: 
-  total: 0
 --- !u!1 &317562887
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   siguiente:
   - {fileID: 1811224266}
+  atras:
+  - {fileID: 1151820943}
 --- !u!1 &813094903
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +697,7 @@ GameObject:
   - component: {fileID: 813094905}
   - component: {fileID: 813094908}
   m_Layer: 5
-  m_Name: botonDado
+  m_Name: dado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1131,6 +1115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   siguiente:
   - {fileID: 800691912}
+  atras:
+  - {fileID: 1876812952}
 --- !u!1 &1614435196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   siguiente:
   - {fileID: 2129363303}
+  atras:
+  - {fileID: 800691912}
 --- !u!224 &1811224267
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1557,6 +1545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   siguiente:
   - {fileID: 0}
+  atras:
+  - {fileID: 2129363303}
 --- !u!224 &1811686401
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1590,6 +1580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   siguiente:
   - {fileID: 1151820943}
+  atras:
+  - {fileID: 0}
 --- !u!1 &1882657411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,6 +1986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   siguiente:
   - {fileID: 1811686400}
+  atras:
+  - {fileID: 1811224266}
 --- !u!224 &2129363304
 RectTransform:
   m_ObjectHideFlags: 0

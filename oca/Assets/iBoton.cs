@@ -21,7 +21,7 @@ public class iBoton : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        dadoPulsado = false;
+        //dadoPulsado = false;//no se que hace aqui
     }
     public int[] vector;
     public int total;
