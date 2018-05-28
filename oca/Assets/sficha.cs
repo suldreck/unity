@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sficha : MonoBehaviour {
+public class sficha : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         dado = GameObject.FindObjectOfType<iBoton>();
         posicionObj = this.transform.position;
-        
+
     }
-    iBoton  dado;
+    iBoton dado;
 
     public Casilla casillaInicio;
     Casilla casillaActual;
-    public Casilla [] camino;
+    public Casilla[] camino;
     public int caminoIndice;
-
-
+    public Casilla casillaFinal;
+    bool sw = false;
 
 
     public Vector3 posicionObj;
     Vector3 velocidad = Vector3.zero;
-    float camaraLenta = 1f;
+    float camaraLenta = 0.2f;
     float distanciaFichas = 20f;
 
     // Update is called once per frame
@@ -33,47 +35,41 @@ public class sficha : MonoBehaviour {
         Vector3 altura = new Vector3(0, extraAltura, 0);
         //Debug.Log( " update fuera if caminoIndice " + caminoIndice+" longitud: "+ camino.Length);
         float distancia = Vector3.Distance(this.transform.position, posicionObj);
-        Debug.Log("distancia:  " + distancia);
-       if (distancia>distanciaFichas)
-        {           
-
-
-            this.transform.position = Vector3.SmoothDamp(this.transform.position, posicionObj + altura, ref velocidad, camaraLenta);
-        }
-        else
+      
+        if (distancia < distanciaFichas)
         {
-        //seguir el camino con la ficha
-         if (  camino !=null      )
-       // while (camino != null && caminoIndice < camino.Length)
-        {
-                Debug.Log("entra en el if de camino null");
+            if (camino != null)
+
+            {
+              
                 if (caminoIndice < camino.Length)
                 {
-                    Debug.Log("longitud del camino " + camino.Length + " caminoIndice " + caminoIndice);
+                   
                     DameUnaNuevaPosicionObj(camino[caminoIndice].transform.position);
-                    //Debug.Log("camino  " + camino[caminoIndice].ToString());
-                    //Debug.Log("posicion objeto " + this.transform.position.x);
-                    //Debug.Log("posicion nueva " + posicionObj.x);         
 
                     caminoIndice++;
                 }
-        }
-         }
+            }
 
+        }
+
+
+        this.transform.position = Vector3.SmoothDamp(this.transform.position, posicionObj + altura, ref velocidad, camaraLenta);
     }
+
     void DameUnaNuevaPosicionObj(Vector3 pos)
     {
         posicionObj = pos;
         velocidad = Vector3.zero;
     }
-     void OnMouseUp()
+    void OnMouseUp()
     {//ToDo,  asegurrse de que objeto ui, se esta pulsando, en este caso
      //deberia ser la ficha solamente.
-    
-       
-        int espaciosParaMover = dado.valorDado+1;
-       // Debug.Log("valor dado:  " + espaciosParaMover);
-        Casilla casillaFinal = casillaActual;
+        bool atrasSw = false;
+
+        int espaciosParaMover = dado.valorDado + 1;
+        // Debug.Log("valor dado:  " + espaciosParaMover);
+        casillaFinal = casillaActual;
         camino = new Casilla[espaciosParaMover];
         if (espaciosParaMover == 0)
         {
@@ -83,20 +79,22 @@ public class sficha : MonoBehaviour {
         //    // Debug.Log("la casilla siguiente " + casillaFinal.transform.position);// si es nullo
         for (int i = 0; i < espaciosParaMover; i++)
         {
-          
-            if (casillaFinal == null)
+
+            if (casillaFinal == null && sw==false)
             {//*********recordar que cuando llegue a la 63, no tiene q ir a la casilla de inicio sino hacia atras.
                 casillaFinal = casillaInicio;
+                sw = true;
 
             }
             else
             {
-                if (casillaFinal.siguiente == null || casillaFinal.siguiente.Length == 0)
-                {
-                    Debug.Log("fin de la lista¿retornara?");
+                /* if (casillaFinal.siguiente == null || casillaFinal.siguiente.Length == 0)
+                 {
+                     Debug.Log("fin de la lista¿retornara?");
 
-                    return;
-                }/*
+                     return;
+                 }*/
+                /*
                 //id del juegador
                 else if(casillaFinal.siguiente.length > 1)
                 {
@@ -109,10 +107,19 @@ public class sficha : MonoBehaviour {
 
 
                 */
-                casillaFinal = casillaFinal.siguiente[0];//como si fuera un iterador
-                                                         //creo q no necesita ser un array,
-                                                         // por q solo puede ir a una casilla
-
+                // if (casillaFinal.siguiente == null && casillaFinal.siguiente.Length==0)
+                int longitud = casillaFinal.siguiente.Length;
+               if (casillaFinal.siguiente[0] == null || atrasSw==true)
+                {  
+                        casillaFinal = casillaFinal.atras[0];
+                    atrasSw = true;
+                }
+                else
+                {
+                    casillaFinal = casillaFinal.siguiente[0];//como si fuera un iterador
+                                                             //creo q no necesita ser un array,
+                                                             // por q solo puede ir a una casilla
+                }
             }
             camino[i] = casillaFinal;//camino q seguira la ficha
         }
@@ -122,17 +129,13 @@ public class sficha : MonoBehaviour {
         }
         else
         {
-            
-            // this.transform.position = casillaFinal.transform.position;//revisar por q no entiend
-            //Debug.Log(this.transform.position);
-           
-            //DameUnaNuevaPosicionObj(casillaFinal.transform.position);
 
-            //Debug.Log(this.transform.position);
+          
             caminoIndice = 0;
             casillaActual = casillaFinal;
+
         }
 
-    
+
     }
 }

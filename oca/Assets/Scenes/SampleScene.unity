@@ -1368,6 +1368,7 @@ MonoBehaviour:
   casillaInicio: {fileID: 1876812952}
   camino: []
   caminoIndice: 999
+  casillaFinal: {fileID: 0}
   posicionObj: {x: 0, y: 0, z: 0}
 --- !u!54 &1697597123
 Rigidbody:
