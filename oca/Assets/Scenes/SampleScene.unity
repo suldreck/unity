@@ -1366,6 +1366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   casillaInicio: {fileID: 1876812952}
+  camino: []
+  caminoIndice: 999
+  posicionObj: {x: 0, y: 0, z: 0}
 --- !u!54 &1697597123
 Rigidbody:
   m_ObjectHideFlags: 0
