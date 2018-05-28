@@ -62,15 +62,25 @@ public class sficha : MonoBehaviour
         posicionObj = pos;
         velocidad = Vector3.zero;
     }
-    void OnMouseUp()
-    {//ToDo,  asegurrse de que objeto ui, se esta pulsando, en este caso
-     //deberia ser la ficha solamente.
-        bool atrasSw = false;
+
+    void tirada()
+    {
+        
+
 
         int espaciosParaMover = dado.valorDado + 1;
         // Debug.Log("valor dado:  " + espaciosParaMover);
         casillaFinal = casillaActual;
         camino = new Casilla[espaciosParaMover];
+        ruta(espaciosParaMover);
+    }
+
+    void ruta(int espaciosParaMover)
+    {
+        camino = new Casilla[espaciosParaMover];
+
+
+        bool atrasSw = false;
         if (espaciosParaMover == 0)
         {
             return;
@@ -80,7 +90,7 @@ public class sficha : MonoBehaviour
         for (int i = 0; i < espaciosParaMover; i++)
         {
 
-            if (casillaFinal == null && sw==false)
+            if (casillaFinal == null && sw == false)
             {//*********recordar que cuando llegue a la 63, no tiene q ir a la casilla de inicio sino hacia atras.
                 casillaFinal = casillaInicio;
                 sw = true;
@@ -88,30 +98,11 @@ public class sficha : MonoBehaviour
             }
             else
             {
-                /* if (casillaFinal.siguiente == null || casillaFinal.siguiente.Length == 0)
-                 {
-                     Debug.Log("fin de la lista¿retornara?");
 
-                     return;
-                 }*/
-                /*
-                //id del juegador
-                else if(casillaFinal.siguiente.length > 1)
-                {
-                      casillaFinal = casillaFinal.siguiente[0];
-                }
-                else
-                {
-                      casillaFinal = casillaFinal.siguiente[0];
-                }
-
-
-                */
-                // if (casillaFinal.siguiente == null && casillaFinal.siguiente.Length==0)
                 int longitud = casillaFinal.siguiente.Length;
-               if (casillaFinal.siguiente[0] == null || atrasSw==true)
-                {  
-                        casillaFinal = casillaFinal.atras[0];
+                if (casillaFinal.siguiente[0] == null || atrasSw == true)
+                {
+                    casillaFinal = casillaFinal.atras[0];
                     atrasSw = true;
                 }
                 else
@@ -130,11 +121,20 @@ public class sficha : MonoBehaviour
         else
         {
 
-          
+
             caminoIndice = 0;
             casillaActual = casillaFinal;
 
         }
+    }
+
+    void casillasEspeciales()
+    {
+
+    }
+    void OnMouseUp()
+    {
+        tirada();
 
 
     }
