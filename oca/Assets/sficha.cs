@@ -13,9 +13,9 @@ public class sficha : MonoBehaviour
 
     }
     iBoton dado;
-
+    public bool botonSw = false;
     public Casilla casillaInicio;
-    Casilla casillaActual;
+    public Casilla casillaActual;
     public Casilla[] camino;
     public int caminoIndice;
     public Casilla casillaFinal;
@@ -26,35 +26,74 @@ public class sficha : MonoBehaviour
     Vector3 velocidad = Vector3.zero;
     float camaraLenta = 0.2f;
     float distanciaFichas = 20f;
+    float extraAltura ;
 
+    Vector3 altura ;
     // Update is called once per frame
     void Update()
     {
-        float extraAltura = ((this.transform.localScale.y + casillaInicio.transform.localScale.y) / 2) - 5;
-
-        Vector3 altura = new Vector3(0, extraAltura, 0);
+        extraAltura = ((this.transform.localScale.y + casillaInicio.transform.localScale.y) / 2) - 5;
+        altura = new Vector3(0, extraAltura, 0);
         //Debug.Log( " update fuera if caminoIndice " + caminoIndice+" longitud: "+ camino.Length);
         float distancia = Vector3.Distance(this.transform.position, posicionObj);
-      
-        if (distancia < distanciaFichas)
+        Debug.Log("distancia fichas" + distancia);
+        if (botonSw == true)
         {
-            if (camino != null)
 
+            if (distancia < distanciaFichas)
             {
-              
-                if (caminoIndice < camino.Length)
-                {
-                   
-                    DameUnaNuevaPosicionObj(camino[caminoIndice].transform.position);
+                if (camino != null)
 
-                    caminoIndice++;
+                {
+
+                    if (caminoIndice < camino.Length)
+                    {
+
+                        DameUnaNuevaPosicionObj(camino[caminoIndice].transform.position);
+
+                        caminoIndice++;
+                    }
+                    else//añadido para q me permita la teleportacion
+                    {
+                        botonSw = false;
+                    }
+                }
+
+            }
+          
+
+
+            this.transform.position = Vector3.SmoothDamp(this.transform.position, posicionObj + altura, ref velocidad, camaraLenta);
+        }
+        else
+        {
+
+            if (this.casillaActual != null && this.casillaActual.tag != "Untagged")
+            {
+                Debug.Log(" " + this.casillaFinal.tag);
+                switch (this.casillaActual.tag)
+                {
+                    case "oca":
+                        Debug.Log(this.casillaFinal.tag);
+                        break;
+                    case "puente":
+                        Debug.Log(this.casillaFinal.tag);
+                        salto(2);
+                        break;
+                    case "carcel":
+                        Debug.Log(this.casillaFinal.tag);
+                        break;
+
+
+                    default:
+                        break;
                 }
             }
-
+            else
+            {
+                Debug.Log("no tiene tag");
+            }
         }
-
-
-        this.transform.position = Vector3.SmoothDamp(this.transform.position, posicionObj + altura, ref velocidad, camaraLenta);
     }
 
     void DameUnaNuevaPosicionObj(Vector3 pos)
@@ -65,13 +104,13 @@ public class sficha : MonoBehaviour
 
     void tirada()
     {
-        
+
 
 
         int espaciosParaMover = dado.valorDado + 1;
         // Debug.Log("valor dado:  " + espaciosParaMover);
         casillaFinal = casillaActual;
-        camino = new Casilla[espaciosParaMover];
+        
         ruta(espaciosParaMover);
     }
 
@@ -132,10 +171,20 @@ public class sficha : MonoBehaviour
     {
 
     }
+    void salto(int espacios)
+    {
+        ruta(espacios);
+        //this.transform.position = Vector3.SmoothDamp(this.transform.position, posicionObj , ref velocidad, camaraLenta);
+        this.transform.position = casillaFinal.transform.position;
+        this.transform.position = this.transform.position + Vector3.up * extraAltura;
+    }
     void OnMouseUp()
     {
+        botonSw = true;
         tirada();
 
+        //salto(); 
+      
 
     }
 }

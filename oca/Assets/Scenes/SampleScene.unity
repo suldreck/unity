@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 901158538}
   m_Layer: 0
   m_Name: contendedorCubo (2)
-  m_TagString: Untagged
+  m_TagString: puente
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 1811224265}
   m_Layer: 0
   m_Name: contendedorCubo (3)
-  m_TagString: Untagged
+  m_TagString: carcel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 1945542861}
   m_Layer: 0
   m_Name: contendedorCubo (1)
-  m_TagString: Untagged
+  m_TagString: oca
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
