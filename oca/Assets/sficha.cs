@@ -12,7 +12,7 @@ public class sficha : MonoBehaviour
         posicionObj = this.transform.position;
 
     }
-    manejadorDeEstados  dado;
+    public manejadorDeEstados dado;
     public bool botonSw = false;
     public Casilla casillaInicio;
     public Casilla casillaActual;
@@ -26,9 +26,9 @@ public class sficha : MonoBehaviour
     Vector3 velocidad = Vector3.zero;
     float camaraLenta = 0.2f;
     float distanciaFichas = 20f;
-    float extraAltura ;
+    float extraAltura;
 
-    Vector3 altura ;
+    Vector3 altura;
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +36,7 @@ public class sficha : MonoBehaviour
         altura = new Vector3(0, extraAltura, 0);
         //Debug.Log( " update fuera if caminoIndice " + caminoIndice+" longitud: "+ camino.Length);
         float distancia = Vector3.Distance(this.transform.position, posicionObj);
-        Debug.Log("distancia fichas" + distancia); 
+        Debug.Log("distancia fichas" + distancia);
         if (botonSw == true)
         {
 
@@ -60,14 +60,13 @@ public class sficha : MonoBehaviour
                 }
 
             }
-          
-
 
             this.transform.position = Vector3.SmoothDamp(this.transform.position, posicionObj + altura, ref velocidad, camaraLenta);
         }
         else
         {
-
+            //if (dado.animacion == true)
+               // return;//animacion, no testear tag
             if (this.casillaActual != null && this.casillaActual.tag != "Untagged")
             {
                 Debug.Log(" " + this.casillaFinal.tag);
@@ -108,7 +107,7 @@ public class sficha : MonoBehaviour
         int espaciosParaMover = dado.valorDado + 1;
         // Debug.Log("valor dado:  " + espaciosParaMover);
         casillaFinal = casillaActual;
-        
+
         ruta(espaciosParaMover);
     }
 
@@ -120,7 +119,7 @@ public class sficha : MonoBehaviour
         {// aun no se ha lanzado el dado
             return;
         }
-         if (dado.fichaTocada == true)//
+        if (dado.fichaTocada == true)//
         {// ya hemos tocado ficha
             return;
         }
@@ -162,7 +161,7 @@ public class sficha : MonoBehaviour
         }
         else
         {
-            
+
             caminoIndice = 0;
             casillaActual = casillaFinal;
 
@@ -187,7 +186,7 @@ public class sficha : MonoBehaviour
         dado.fichaTocada = true;
         dado.animacion = true;
         //salto(); 
-      
+
 
     }
 }
