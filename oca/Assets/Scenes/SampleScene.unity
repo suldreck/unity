@@ -668,6 +668,50 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 320129343}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &778076126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 778076128}
+  - component: {fileID: 778076127}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &778076127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778076126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd244fef94431a428fe69d437840d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dadoPulsado: 0
+  valorDado: 0
+  fichaTocada: 0
+  animacion: 0
+--- !u!4 &778076128
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778076126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 161.37491, y: -120.625, z: 318.5017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &800691912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,6 +777,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24ecd530063ba145a344aeb47cbe888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vector: 
+  total: 0
+  dado: {fileID: 0}
   imagenes0:
   - {fileID: 21300000, guid: a366f07433144be4bbe3efa54fbd060b, type: 3}
   - {fileID: 21300000, guid: d2fc4f75e2109d64693e18078e8b2ecf, type: 3}
@@ -740,11 +787,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0ffd79b6db959d4469d409ee2a0a4372, type: 3}
   - {fileID: 21300000, guid: 0f3b22993eb9ff840a5a78615439cff2, type: 3}
   - {fileID: 21300000, guid: 76875be7615995a4592cfa63ce8477cb, type: 3}
-  dadoPulsado: 0
-  valorDado: 0
   prueba: 
-  vector: 
-  total: 0
 --- !u!114 &813094906
 MonoBehaviour:
   m_ObjectHideFlags: 0

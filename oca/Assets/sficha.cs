@@ -8,11 +8,11 @@ public class sficha : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        dado = GameObject.FindObjectOfType<iBoton>();
+        dado = GameObject.FindObjectOfType<manejadorDeEstados>();
         posicionObj = this.transform.position;
 
     }
-    iBoton dado;
+    manejadorDeEstados  dado;
     public bool botonSw = false;
     public Casilla casillaInicio;
     public Casilla casillaActual;
@@ -36,7 +36,7 @@ public class sficha : MonoBehaviour
         altura = new Vector3(0, extraAltura, 0);
         //Debug.Log( " update fuera if caminoIndice " + caminoIndice+" longitud: "+ camino.Length);
         float distancia = Vector3.Distance(this.transform.position, posicionObj);
-        Debug.Log("distancia fichas" + distancia);
+        Debug.Log("distancia fichas" + distancia); 
         if (botonSw == true)
         {
 
@@ -105,8 +105,6 @@ public class sficha : MonoBehaviour
     void tirada()
     {
 
-
-
         int espaciosParaMover = dado.valorDado + 1;
         // Debug.Log("valor dado:  " + espaciosParaMover);
         casillaFinal = casillaActual;
@@ -117,10 +115,16 @@ public class sficha : MonoBehaviour
     void ruta(int espaciosParaMover)
     {
         camino = new Casilla[espaciosParaMover];
-
-
         bool atrasSw = false;
-        if (espaciosParaMover == 0)
+        if (dado.dadoPulsado == false)
+        {// aun no se ha lanzado el dado
+            return;
+        }
+         if (dado.fichaTocada == true)//
+        {// ya hemos tocado ficha
+            return;
+        }
+        if (espaciosParaMover == 0)//si no hay movimiento salte
         {
             return;
         }
@@ -133,7 +137,6 @@ public class sficha : MonoBehaviour
             {//*********recordar que cuando llegue a la 63, no tiene q ir a la casilla de inicio sino hacia atras.
                 casillaFinal = casillaInicio;
                 sw = true;
-
             }
             else
             {
@@ -159,8 +162,7 @@ public class sficha : MonoBehaviour
         }
         else
         {
-
-
+            
             caminoIndice = 0;
             casillaActual = casillaFinal;
 
@@ -180,9 +182,10 @@ public class sficha : MonoBehaviour
     }
     void OnMouseUp()
     {
-        botonSw = true;
+        botonSw = true;//para el problema con el update
         tirada();
-
+        dado.fichaTocada = true;
+        dado.animacion = true;
         //salto(); 
       
 

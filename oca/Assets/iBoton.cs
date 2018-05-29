@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class iBoton : MonoBehaviour {
-
+    public int[] vector;
+    public int total;
+    public manejadorDeEstados dado;
     // Use this for initialization
     void Start()
     {
+        dado= GameObject.FindObjectOfType<manejadorDeEstados>();
         vector = new int[4];
-        valorDado = 0;
+        dado.valorDado = 0;
 }
     public Sprite[] imagenes0;
-    public bool dadoPulsado = false;//estado estado del dado que activara luego las acciones derivadas 
-    public int valorDado;
+    //public bool dadoPulsado = false;//estado estado del dado que activara luego las acciones derivadas 
+    //public int valorDado;
     public void turnoSiguenteJugador()
     {
-
+        dado.dadoPulsado = false;
     }
     public string prueba = "";
     // Update is called once per frame
@@ -23,17 +26,16 @@ public class iBoton : MonoBehaviour {
     {
         //dadoPulsado = false;//no se que hace aqui
     }
-    public int[] vector;
-    public int total;
+    
    
     
 
     public void fAleatorio()
     {
-         valorDado = Random.Range(0, imagenes0.Length);
-        Debug.Log("el valor del dado es: " + valorDado);
-        this.transform.GetChild(0).GetComponent<Image>().sprite = imagenes0[valorDado];
-        this.dadoPulsado = true;//hemos tirado el dado
+         dado.valorDado = Random.Range(0, imagenes0.Length);
+       
+        this.transform.GetChild(0).GetComponent<Image>().sprite = imagenes0[dado.valorDado];
+        this.dado.dadoPulsado = true;//hemos tirado el dado
 
      
     }
